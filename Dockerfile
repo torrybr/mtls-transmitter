@@ -1,5 +1,5 @@
 ARG DOCKER_REPO=docker.io/library
-FROM ${DOCKER_REPO}/golang:1.22.3-alpine as builder
+FROM ${DOCKER_REPO}/golang:1.22.4-alpine as builder
 
 ARG DOCK_PKG_DIR=/go/src/mtls-transmitter
 

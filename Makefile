@@ -1,5 +1,5 @@
 .PHONY: validate build
-IMAGE_NAME ?= crabtree/mtls-transmitter
+IMAGE_NAME ?= mtls-transmitter
 IMAGE_TAG ?= $(shell git rev-parse HEAD)
 
 validate: format
@@ -18,3 +18,8 @@ build:
 image: validate
 	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) -f Dockerfile .
 	docker tag $(IMAGE_NAME):$(IMAGE_TAG) $(IMAGE_NAME):latest
+
+up-d: ## Up all or c=<name> containers in background
+	docker-compose -f $(or $(DOCKER_COMPOSE_FILE), docker-compose.yaml) up -d $(c)
+
+

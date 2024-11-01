@@ -1,0 +1,23 @@
+services:
+  mtls-transmitter:
+    image: mlts-transmitter:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./certs:/cert
+    environment:
+      - CERT=${CERT}
+      - KEY=${KEY}
+      - URL=${URL}
+      - SKIP_SSL=${SKIP_SSL}
+      - SILENT=${SILENT}
+    command: [
+      "-cert", "${CERT}",
+      "-key", "${KEY}",
+      "-url", "${URL}",
+      "-skip-ssl", "${SKIP_SSL}",
+      "-silent", "${SILENT}"
+    ]

@@ -21,5 +21,3 @@ image: validate
 
 up-d: ## Up all or c=<name> containers in background
 	docker-compose -f $(or $(DOCKER_COMPOSE_FILE), docker-compose.yaml) up -d $(c)
-
-

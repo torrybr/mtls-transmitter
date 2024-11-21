@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./certs:/cert
+      - ./certs:/certs
     environment:
       - CERT=${CERT}
       - KEY=${KEY}
